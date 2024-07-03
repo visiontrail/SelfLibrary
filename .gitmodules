@@ -1,0 +1,3 @@
+[submodule "SelfResume"]
+	path = SelfResume
+	url = git@github.com:visiontrail/SelfResume.git
