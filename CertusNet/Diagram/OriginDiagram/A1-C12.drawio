@@ -1,0 +1,55 @@
+<mxfile host="Electron" modified="2024-07-25T03:33:31.791Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.16 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="FEtUUm5BmpRubSI6hWcL" version="22.1.16" type="device">
+  <diagram name="D1.1" id="tuZCR2oWFzMraJzxPP0h">
+    <mxGraphModel dx="1103" dy="657" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="AgcoJVtZ6P7yFq7WNk0b-1" value="third_party/cgo/libcgo.so" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+          <mxGeometry x="178" y="470" width="470" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="AgcoJVtZ6P7yFq7WNk0b-2" value="third_party/cgo/restful.go" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+          <mxGeometry x="178" y="440" width="470" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="AgcoJVtZ6P7yFq7WNk0b-3" value="RESTful Server&lt;br&gt;端口、用户名密码可配置" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+          <mxGeometry x="178" y="350" width="221" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AgcoJVtZ6P7yFq7WNk0b-4" value="RESTful Client" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="420" y="350" width="228" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AgcoJVtZ6P7yFq7WNk0b-6" value="告警实时主动上报" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="419" y="310" width="231" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="AgcoJVtZ6P7yFq7WNk0b-7" value="alarmurl.conf" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="410" width="228" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="AgcoJVtZ6P7yFq7WNk0b-8" value="日志管理" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="178" y="310" width="102" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="AgcoJVtZ6P7yFq7WNk0b-9" value="性能管理" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="297" y="310" width="102" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="AgcoJVtZ6P7yFq7WNk0b-10" value="/api/rest/directconn/v1/getpmdata/:pmfilename" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="178" y="280" width="230" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="AgcoJVtZ6P7yFq7WNk0b-11" value="/api/rest/directconn/v1/getpmdatainterval/time/:pminterval" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="128" y="260" width="280" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="AgcoJVtZ6P7yFq7WNk0b-12" value="/api/rest/directconn/v1/getlog" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="258" y="240" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="AgcoJVtZ6P7yFq7WNk0b-13" value="linux" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d80073;fontColor=#ffffff;strokeColor=#A50040;" vertex="1" parent="1">
+          <mxGeometry x="178" y="500" width="602" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="AgcoJVtZ6P7yFq7WNk0b-14" value="ssh" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="660" y="470" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="AgcoJVtZ6P7yFq7WNk0b-15" value="confd" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="660" y="440" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="AgcoJVtZ6P7yFq7WNk0b-16" value="confd_cli" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="660" y="410" width="120" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

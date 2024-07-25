@@ -1,0 +1,241 @@
+@startuml
+box "flexez_ran_d watch for all business processes\n" #LightGreen
+participant flexez_ran_d
+participant OAM_PROC_MGR order 1
+participant OAM_XCONFD order 2
+participant OAM_FH order 3
+participant OAM_PHY order 3
+participant OAM_DEV order 4
+participant OAM_MAIN_PROC order 5
+participant CU order 6
+participant PHY order 7
+participant DU order 8
+participant LTE order 9
+end box
+
+flexez_ran_d->OAM_XCONFD : start OAM with script
+flexez_ran_d->OAM_FH
+flexez_ran_d->OAM_PHY
+flexez_ran_d->OAM_DEV
+flexez_ran_d->OAM_MAIN_PROC
+flexez_ran_d->flexez_ran_d : Waiting for\nworkmode\n(<b>config initial timer</b>)\n(timeout 15 minutes)
+
+note over OAM_MAIN_PROC
+  - Set gnbCfgState_(<color #ff2121>rename gnbState_</color>) to GNB_CFG_INITIAL
+  <color #ff2121>- Set clockState_(rename clock_State_) to LOSE</color>
+  <color #ff2121>- Set processState_ to PROC_INITIAL</color>
+  <color #ff2121>- Set hardwareState_(the server itself) to HW_INITIAL</color>
+end note
+note over OAM_MAIN_PROC
+  <color #ff2121>- Set rruState to RRU_INITIAL</color>
+end note
+
+note over OAM_DEV
+<color #ff2121>Start device check timer (timeout 10 minutes)</color>
+end note
+
+note over OAM_DEV
+<color #ff2121>Start a periodic timer or a new thread to check the GPS state</color>
+<color #ff2121>(new FH interface 0xA000_0000)</color>
+end note
+
+' note over OAM_DEV
+' <color #ff2121>Start a periodic timer or a new thread to check the local interface state</color>
+' end note
+
+note over OAM_MAIN_PROC
+<color #ff2121>Start all parameter initial timer (timeout 16 minutes)</color>
+end note
+
+OAM_DEV->OAM_DEV : <color #ff2121>Check GPS state</color>
+OAM_DEV->OAM_MAIN_PROC : <color #ff2121>MSG_CODE_DEVMGR_GPS_LOCK_IND (NEW)</color>
+note over OAM_MAIN_PROC #LightPink
+  - Set clockState_ to (LOCK)
+  - Set bitsetStartupChecker HW_STATE_GPS_LOCKED true
+  - Check bitsetStartupChecker all status
+end note
+
+
+' OAM_DEV->OAM_DEV : <color #ff2121>Check veth_0 and certus_tap0 interface state</color>
+' OAM_DEV->OAM_MAIN_PROC : <color #ff2121>MSG_CODE_DEVMGR_INTERFACE_READY_IND (NEW)</color>
+' note over OAM_MAIN_PROC #LightPink
+'   - Set hardwareState_ to (HW_READY)
+'   - Set bitsetStartupChecker HW_STATE_OUTER_INTERFACE_READY true
+'   - Check bitsetStartupChecker all status
+' end note
+
+
+note over OAM_XCONFD #YellowGreen
+The confd initial config(<back:cadetblue>outside</back>) callback order:
+1.FH config (Mainly FH\FEC config)
+2.Cell config (Mainly net plan config)
+3.Device config (Mainly interface ip config)
+end note
+
+note over OAM_XCONFD
+1.FH config (Mainly FH\FEC config)
+end note
+
+OAM_XCONFD->OAM_FH : setRegVal or zmqRpcClient(..., ..., "setRegDataVal", ...);
+
+note over OAM_FH #LightPink
+Check all the FH\FEC reg value list is all configured
+end note
+
+OAM_FH->OAM_MAIN_PROC : <color #ff2121>MSG_CODE_FHMGR_ALLCFG_FIN_IND (NEW)</color>
+
+note over OAM_MAIN_PROC #LightPink
+  - Set gnb_State to (GNB_CFG_CONFIGING)
+  - Set bitsetStartupChecker CFG_FHFEC_FINISH true
+  - Check bitsetStartupChecker all status
+end note
+
+note over OAM_XCONFD
+2.Cell config (Mainly net plan config)
+end note
+
+
+OAM_XCONFD->OAM_PHY : MSG_CODE_PHY_CONFG_GET
+
+note over OAM_PHY
+  - waiting for these three net-plan configure flag
+     (from eu-agent-manager\cell-manager)
+     (timeout 100s):
+    -- phyCellAntCfgFlag_ 
+    -- euPlanListProcessFinishFlag_ 
+    -- phyOamCellConfigFlag_
+end note
+
+note over OAM_PHY
+generate phy sub6.xml configure data file
+end note
+
+OAM_PHY->OAM_MAIN_PROC : <color #ff2121>MSG_CODE_PHYMGR_ALLCFG_FIN_IND (NEW)</color>
+
+note over OAM_MAIN_PROC #LightPink
+  - Set gnb_State to (GNB_CFG_CONFIGING)
+  - Set bitsetStartupChecker CFG_PHYSUB6_FINISH true
+  - Check bitsetStartupChecker all status
+end note
+
+
+note over OAM_XCONFD
+3.Device config (Mainly interface ip configure)
+end note
+
+OAM_XCONFD->OAM_DEV : Send MSG_CODE_GET_INTERFACE_IND
+
+note over OAM_DEV
+  - Config all the interface ip\route etc. config
+  (All above is CFG-STEP 04 in log)
+end note
+
+OAM_DEV->OAM_MAIN_PROC : <color #ff2121>MSG_CODE_INTERFACE_ALLCFG_FIN_IND (NEW)</color>
+
+note over OAM_MAIN_PROC #LightPink
+  - Set gnb_State to (GNB_CFG_CONFIGING)
+  - Set bitsetStartupChecker CFG_INTERFACE_FINISH true
+  - Check bitsetStartupChecker all status
+end note
+
+note over OAM_MAIN_PROC #LightPink
+When bitsetStartupChecker config part(FHFEC, PHY, INTERFACE) all true
+  - Set gnb_State to (GNB_CFG_CONFIG_FINISH)
+end note
+
+note over OAM_MAIN_PROC #LightPink
+When bitsetStartupChecker config and hardware part all true
+  - Netconf client initial
+  - Start Callhome thread to waiting for EU\RRU access
+end note
+
+OAM_MAIN_PROC<-OAM_MAIN_PROC : <color #ff2121>Simulated send PHY Ready message (CANCEL!)</color>
+
+
+OAM_MAIN_PROC->OAM_PROC_MGR: <color #ff2121>Send MSG_CODE_SWM_WORKMODE_IND</color>
+
+note over OAM_PROC_MGR
+<color #ff2121>Start process check timer 5 minutes</color>
+end note
+
+OAM_PROC_MGR->flexez_ran_d: Send MSG_CODE_OAM_WORKMODE_IND\n(NR+LTE or NR)
+
+flexez_ran_d->flexez_ran_d : Finish waiting\nfor workmode
+
+note over OAM_MAIN_PROC
+Waiting for
+MSG_CODE_OUTER_PROCESS_STATUS_IND
+from <b>oam-process-manager</b>
+end note
+
+
+flexez_ran_d->CU : start CU with fork
+note over CU
+Cell initial config
+end note
+
+flexez_ran_d->PHY : start PHY with script
+note over PHY
+Cell initial config
+end note
+
+flexez_ran_d->DU : start DU with script
+note over DU
+Cell initial config
+end note
+
+flexez_ran_d->LTE : start LTE with script (When work mode is NR+LTE)
+
+flexez_ran_d->OAM_PROC_MGR : Daemon ready message
+OAM_PROC_MGR<-CU : CU ready message
+OAM_PROC_MGR<-DU : DU ready message
+OAM_PROC_MGR<-LTE : LTE ready message
+
+OAM_PROC_MGR->OAM_MAIN_PROC :Send MSG_CODE_OUTER_PROCESS_STATUS_IND
+
+note over OAM_MAIN_PROC
+end note
+
+note over OAM_MAIN_PROC #LightPink
+When bitsetStartupChecker all bitset true
+  - Set processState_ to GNB READY
+  - Stop All parameter timer
+end note
+
+note over OAM_DEV #LightPink
+Device check timer time out process:
+- check the MSG_CODE_DEVMGR_GPS_LOCK_IND message already sended or not
+and
+- check the MSG_CODE_INTERFACE_ALLCFG_FIN_IND message already sended or not
+
+IF NOT : 
+- Send a new alarm "Dev initial failed" to webLMT or OMC
+- (Through alarm post deal)Send message MSG_CODE_HARD_RESET_IND or
+  call Swm::get_instance()->activatePowerDown() directly
+end note
+
+note over OAM_PROC_MGR
+Process check timer time out process:
+- check all the process state
+
+IF NOT : 
+- Send a 1002 alarm "The protocol stack software fails to be started" to webLMT or OMC
+- 1002 alarm post deal: reboot_module(soft reset)
+end note
+
+
+note over OAM_MAIN_PROC #LightPink
+All parameter check timer time out process:
+- check the bitsetStartupChecker all bitset is true or not
+
+IF NOT : 
+- Send a new alarm "All station initial failed" to webLMT or OMC
+- (Through alarm post deal)Send message MSG_CODE_HARD_RESET_IND or
+  call Swm::get_instance()->activatePowerDown() directly
+end note
+
+note over flexez_ran_d
+start monitor
+end note
+
+@enduml

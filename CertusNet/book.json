@@ -6,14 +6,14 @@
         "themeSkdoc":{
             "nav":[
                 {
-                    "url":"http://172.21.6.108/bugzilla/report.cgi?bug_status=UNCONFIRMED&bug_status=CONFIRMED&bug_status=IN_PROGRESS&component=HYT-LTE-OAM%26Trans&component=OAM&product=4TR%20Flex-Oran&product=ARM-ORAN&product=Flex-Lte&product=Flex-ORAN&resolution=---&x_axis_field=bug_severity&y_axis_field=component&format=table&action=wrap&saved_report_id=132",
+                    "url":"nc_edit_container_valid_check_from_name",
                     "target":"_blank",
                     "name": "OAM问题单统计"
                 },
                 {
                     "url":"http://192.168.10.67:8090/pages/viewpage.action?pageId=16515518",
                     "target":"_blank",
-                    "name": "OAM资源工作说明"
+                    "name": "OAM版本发布"
                 }
             ]
         }
@@ -21,7 +21,7 @@
     "pluginsConfig": {
         "theme-skdoc":{
             "search-placeholder":"输入关键字搜索", 
-            "logo":"./Diagram/logo.png",
+            "logo":"./Diagram/logo200.png",
             "favicon": "./favicon.ico" 
         }
     }

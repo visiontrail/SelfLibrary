@@ -1,0 +1,67 @@
+<mxfile host="Electron" modified="2024-07-25T03:59:59.929Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.16 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="Bcqqk3hUG5Oyi_kkwygO" version="22.1.16" type="device">
+  <diagram name="Page-1" id="aOHJuLvCNBkZoeXJlo9Y">
+    <mxGraphModel dx="1147" dy="683" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bXTqJYmsLtqWujcSEev9-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="140" width="680" height="420" as="geometry" />
+        </mxCell>
+        <mxCell id="bXTqJYmsLtqWujcSEev9-2" value="golang" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="611" width="680" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="bXTqJYmsLtqWujcSEev9-3" value="Linux" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="636" width="680" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="bXTqJYmsLtqWujcSEev9-4" value="scheme.json(区分NR、LTE)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="565" width="170" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="bXTqJYmsLtqWujcSEev9-5" value="fakeValue.db" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="565" width="150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="bXTqJYmsLtqWujcSEev9-6" value="fakeValue.sql" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="585" width="150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="bXTqJYmsLtqWujcSEev9-8" value="server.crt\server.key（https）" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="565" width="170" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="bXTqJYmsLtqWujcSEev9-9" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#b0e3e6;strokeColor=#0e8088;" vertex="1" parent="1">
+          <mxGeometry x="640" y="180" width="100" height="370" as="geometry" />
+        </mxCell>
+        <mxCell id="bXTqJYmsLtqWujcSEev9-10" value="OMC接口" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="660" y="180" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="bXTqJYmsLtqWujcSEev9-11" value="cwmp_trans \ cwmp_trans_lte" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="315" y="140" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="bXTqJYmsLtqWujcSEev9-13" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#b0e3e6;strokeColor=#0e8088;" vertex="1" parent="1">
+          <mxGeometry x="100" y="180" width="100" height="370" as="geometry" />
+        </mxCell>
+        <mxCell id="bXTqJYmsLtqWujcSEev9-14" value="内部接口" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="120" y="180" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="bXTqJYmsLtqWujcSEev9-15" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="180" width="440" height="340" as="geometry" />
+        </mxCell>
+        <mxCell id="bXTqJYmsLtqWujcSEev9-16" value=".cwmpinfo" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="318" y="565" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="bXTqJYmsLtqWujcSEev9-17" value="配置文件" style="shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="100" y="565" width="20" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="bXTqJYmsLtqWujcSEev9-18" value="HTTP(S)&lt;br&gt;Server" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cdeb8b;strokeColor=#36393d;" vertex="1" parent="1">
+          <mxGeometry x="650" y="220" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="bXTqJYmsLtqWujcSEev9-19" value="cts_lte_tr069" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cdeb8b;strokeColor=#36393d;" vertex="1" parent="1">
+          <mxGeometry x="110" y="220" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="bXTqJYmsLtqWujcSEev9-21" value="netconf&lt;br&gt;client" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cdeb8b;strokeColor=#36393d;" vertex="1" parent="1">
+          <mxGeometry x="110" y="260" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="bXTqJYmsLtqWujcSEev9-23" value="&quot;github.com/Juniper/go-netconf/netconf&quot;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=6;" vertex="1" parent="1">
+          <mxGeometry x="110" y="300" width="80" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
