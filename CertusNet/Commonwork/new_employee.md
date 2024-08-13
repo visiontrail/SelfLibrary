@@ -10,7 +10,7 @@
     - [YANG语言中文](https://tonydeng.github.io/rfc7950-zh/)
     - [YANG语言原文](https://datatracker.ietf.org/doc/html/rfc7950)
 2. 基础代码实战：
-    - 172.21.27.166/oam_du/libxconfdexample （云桌面内访问）
+    - 172.21.27.166/oam_du/libxconfdexample （**云桌面内访问**）
 3. 了解全部RPC报文内容
     - [H3C发布的Netconf报文说明](http://www.h3c.com/cn/d_201906/1208202_30005_0.htm)
 

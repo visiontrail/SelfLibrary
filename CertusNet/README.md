@@ -10,17 +10,17 @@
     * [守护进程](A1-C1-daemon.md)
     * [启动流程](A1-C2-startup.md)
     * [设备与配置](A1-C3-config.md)
-    * [EU,RU管理](A1-C4-eru_mgmt.md)
+    * [EU,RU管理（基站侧）](A1-C4-eru_mgmt.md)
     * [告警](A1-C5-alarm.md)
     * [性能](A1-C6-pm.md)
     * [日志](A1-C7-log.md)
     * [软件升级](A1-C8-swm.md)
     * [南向接口](A1-C9-sourceinterface.md)
-    * [自动开站](A1-C10-startup-automation.md)
+    * [自动开站](A1-C10-startup_automation.md)
     * [License软件许可](A1-C11-license.md)
-    * [基站直连接口](A1-C12-restful_interface.md)
+    * [基站直连接口（Restful）](A1-C12-restful_interface.md)
 * [加速卡总体设计说明](A2-C0-fh_overview.md)
-* [ERU总体设计说明](A3-C0-eru_overview.md)
+* [ERU总体设计说明（设备侧）](A3-C0-eru_overview.md)
     * [NETCONF Server](A3-C1-eru_netconf_server.md)
 * [直放站（永鼎）开发维护方法](A4-C0-signalbooster_overview.md)
 * [LTE（海能达）开发维护说明](A5-C0-hyt_lte_overview.md)
@@ -37,10 +37,9 @@
 * [资源工作汇总](./Commonwork/overview.md)
     * [各类权限,常用软件汇总](./Commonwork/authority_software.md)
     * [新员工工作指引](./Commonwork/new_employee.md)
-    * [开发虚拟机列表与管理办法](./Commonwork/vm_manager.md)
+    * [开发虚拟机列表与管理办法](./Commonwork/server_manager.md)
     * [Bugzilla问题处理流程](./Commonwork/bugzilla_process.md)
     * [版本编译发布流程](./Commonwork/compile_publish_process.md)
-
 
 
 
@@ -51,6 +50,7 @@
 - **设计文档**：包含NR-OAM，LTE-OAM总体设计、加速卡总体设计、ERU总体设计、直放站（永鼎）维护方法等。
 - **资源文档**：包含新员工工作指引、各类权限,常用软件等。
 - **内部梳理总结文档**：包含特性设计报告汇总、基站缺陷与GAP等
+- **文档中的原图**：均存放在路径：./Diagram当中，可用draw.io打开
 
 ### 对外说明文档（在Confluence上发布）
 - **版本发布说明**：OAM的版本发布周期按照项目节奏调整，如周或月为粒度发布或紧急BugFix版本。均需要在[Confluence](http://192.168.10.67:8090/pages/viewpage.action?pageId=16515518)上列出本次发布的组件和对应的版本号，以及发布说明（主要是列出Bugzilla系统中的BugID和描述）

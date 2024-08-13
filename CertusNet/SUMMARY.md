@@ -32,6 +32,6 @@
 * [资源工作汇总](./Commonwork/overview.md)
     * [各类权限,常用软件汇总](./Commonwork/authority_software.md)
     * [新员工工作指引](./Commonwork/new_employee.md)
-    * [开发虚拟机列表与管理办法](./Commonwork/vm_manager.md)
+    * [开发虚拟机列表与管理办法](./Commonwork/server_manager.md)
     * [Bugzilla问题处理流程](./Commonwork/bugzilla_process.md)
     * [版本编译发布流程](./Commonwork/compile_publish_process.md)

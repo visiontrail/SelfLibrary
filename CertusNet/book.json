@@ -6,14 +6,24 @@
         "themeSkdoc":{
             "nav":[
                 {
-                    "url":"nc_edit_container_valid_check_from_name",
+                    "url":"https://zh.cppreference.com/w/%E9%A6%96%E9%A1%B5",
+                    "target":"_blank",
+                    "name": "C++参考手册"
+                },
+                {
+                    "url":"https://tour.go-zh.org/welcome/1",
+                    "target":"_blank",
+                    "name": "GO语言之旅"
+                },
+                {
+                    "url":"http://172.21.6.108/bugzilla/report.cgi?bug_status=UNCONFIRMED&bug_status=CONFIRMED&bug_status=IN_PROGRESS&component=HYT-LTE-OAM%26Trans&component=OAM&product=4TR%20Flex-Oran&product=ARM-ORAN&product=Flex-Lte&product=Flex-ORAN&resolution=---&x_axis_field=bug_severity&y_axis_field=component&format=table&action=wrap&saved_report_id=132",
                     "target":"_blank",
                     "name": "OAM问题单统计"
                 },
                 {
                     "url":"http://192.168.10.67:8090/pages/viewpage.action?pageId=16515518",
                     "target":"_blank",
-                    "name": "OAM版本发布"
+                    "name": "OAM发布"
                 }
             ]
         }
